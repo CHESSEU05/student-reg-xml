@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified">
 
@@ -57,7 +57,7 @@
               <xs:element name="GPA">
                 <xs:simpleType>
                   <xs:restriction base="xs:decimal">
-                    <xs:minInclusive value="0.00"/>
+                    <xs:minInclusive value="0.00" />
                     <xs:maxInclusive value="4.00"/>
                     <xs:fractionDigits value="2"/>
                   </xs:restriction>
