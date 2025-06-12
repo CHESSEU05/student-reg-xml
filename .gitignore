@@ -1,0 +1,7 @@
+/node_modules/
+/.env
+schema/*xml
+.vscode/
+package-lock.json
+.DS_Store
+Thumbs.db   

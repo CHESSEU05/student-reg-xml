@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+  <xs:element name="students">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="student" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+
+              <!-- Student ID: pattern FE\d{2}A\d{3} -->
+              <xs:element name="studentID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="FE\d{2}A\d{3}"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <!-- First and last names -->
+              <xs:element name="firstName" type="xs:string"/>
+              <xs:element name="lastName"  type="xs:string"/>
+
+              <!-- Gender constrained to Male or Female ONLY-->
+              <xs:element name="gender">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Male"/>
+                    <xs:enumeration value="Female"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <!-- Date of birth -->
+              <xs:element name="dateOfBirth" type="xs:date"/>
+
+              <!-- Email with basic pattern -->
+              <xs:element name="email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <!-- Phone number: Cameroon format -->
+              <xs:element name="phoneNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="\+237(62|65|67|68|69)\d{7}"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <!-- GPA between 0.00 and 4.00 inclusive -->
+              <xs:element name="GPA">
+                <xs:simpleType>
+                  <xs:restriction base="xs:decimal">
+                    <xs:minInclusive value="0.00"/>
+                    <xs:maxInclusive value="4.00"/>
+                    <xs:fractionDigits value="2"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <!-- Program of study -->
+              <xs:element name="program" type="xs:string"/>
+
+              <!-- Address with nested elements -->
+              <xs:element name="address">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="city"    type="xs:string"/>
+                    <xs:element name="quarter" type="xs:string"/>
+                    <xs:element name="street"  type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
